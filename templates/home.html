@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .login input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .login button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login button:hover {
+            background-color: #0056b3;
+        }
+        .login h2 {
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1>Salary Prediction Web</h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <input type="text" name="Experience" placeholder="Experience" required="required" /><br>
+            <input type="text" name="Team_Lead_Experience" placeholder="Team Lead Experience" required="required" /><br>
+            <input type="text" name="Project_Manager_Experience" placeholder="Project Manager Experience" required="required" /><br>
+            <input type="text" name="Certifications" placeholder="Certifications" required="required" /><br>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+        <h2>
+            The Salary prediction is {{result}}
+        </h2>
+    </div>
+</body>
+</html>
